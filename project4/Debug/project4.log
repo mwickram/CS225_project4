@@ -1,0 +1,5 @@
+﻿  project4.cpp
+c:\users\mimad\documents\maheshimaduwa\cmp_sci_2250\homework\project4\project4\project4.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\mimad\documents\maheshimaduwa\cmp_sci_2250\homework\project4\project4\project4.cpp(120): warning C4018: '<': signed/unsigned mismatch
+  project4.vcxproj -> C:\Users\mimad\Documents\MaheshImaduwa\CMP_SCI_2250\Homework\project4\Debug\project4.exe
+  project4.vcxproj -> C:\Users\mimad\Documents\MaheshImaduwa\CMP_SCI_2250\Homework\project4\Debug\project4.pdb (Partial PDB)

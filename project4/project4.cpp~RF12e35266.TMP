@@ -1,0 +1,112 @@
+// project4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include<iostream>
+#include"DelimiterStack.h"
+#include <string>
+
+using namespace std;
+
+
+string readConsole();
+
+int main(){
+	
+	char braces = '{}';
+	char parantheses = '()';
+	char brackets = '[]';
+	DelimiterStack mydelistack;
+	string currentLine;
+	char * currentLinePtr;
+
+
+do {
+	currentLine = readConsole();
+	cout << currentLine.c_str();
+
+	//mydelistack.push('d', 1, 1);
+	// parse the input line ignore non delimiters
+
+	
+		// if an opening delimiter, push
+		
+		// if a closing delimiter, pop 
+		
+		// check if any error needs to be thrown
+		
+		// rest of your logic
+		
+
+} while (currentLine != "DONE");
+
+	// rest of the logic
+
+	return 0;
+}
+
+
+string readConsole() {
+
+	string userString;
+	bool flag = true;
+
+	do {
+		try {
+			cout << "Please enter a sentence in " << endl;
+			getline(cin, userString);
+
+			int letterCount = 0;
+
+			for (int ind = 0; ind < userString.size(); ind++) {
+
+				if (userString.empty()) {
+					throw string("Sentence should have atleast one word");
+				}
+				else if (!isalpha(userString[ind]) && !isspace(userString[ind])) {
+					throw string("Your entry contains non alphabetic characters.");
+				}
+				else if (isalpha(userString[ind])) {
+					letterCount++;
+				}
+			}
+			if (letterCount == 0) {
+				throw string("Sentence should be atleast one English word");
+			}
+			flag = false;
+		}
+		catch (string exceptionString) {
+			cout << exceptionString << endl;
+		}
+
+	} while (flag);
+
+	int ind = 0;
+	//remove all space at the begining of user entry
+	while (!isalpha(userString[ind])) {
+		ind++;
+	}
+	userString.erase(0, ind);
+
+	ind = 0;
+	//remove all spaces at the end of user entry
+	while (!isalpha(userString[userString.size() - 1 - ind])) {
+		ind++;
+	}
+	userString.erase(userString.size() - ind, ind);
+	//remove more than one space between two words in user entry
+	ind = 0;
+	while (userString[ind] != '\0') {
+		if (isspace(userString[ind]) && !isalpha(userString[ind + 1])) {
+			userString.erase(ind + 1, 1);
+		}
+		else {
+			ind++;
+		}
+	}
+	//add one space to the end.
+	//userString.insert(userString.size(), " ");
+
+	return userString;
+}
+
